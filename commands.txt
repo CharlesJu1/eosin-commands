@@ -27,10 +27,10 @@ imported private key for: EOS5pJ1hEb6YhNVwE6EsJWYk88fYwYnEzYGEMwbwsZeGZx1XvT1u6
 ./cleos set contract eosio ~/eos-dawn-5-22/eos/build/contracts/eosio.bios -p eosio
 ./cleos create account eosio user EOS73D1s3ie2M8WdSDefQp4ZCYX99sda9wmkVvJ3GBLUbNyBeXnTe EOS5pJ1hEb6YhNVwE6EsJWYk88fYwYnEzYGEMwbwsZeGZx1XvT1u6
 ./cleos create account eosio tester EOS73D1s3ie2M8WdSDefQp4ZCYX99sda9wmkVvJ3GBLUbNyBeXnTe EOS5pJ1hEb6YhNVwE6EsJWYk88fYwYnEzYGEMwbwsZeGZx1XvT1u6
-./cleos create account eosio eosio.token EOS73D1s3ie2M8WdSDefQp4ZCYX99sda9wmkVvJ3GBLUbNyBeXnTe EOS5pJ1hEb6YhNVwE6EsJWYk88fYwYnEzYGEMwbwsZeGZx1XvT1u6
-./cleos set contract eosio.token ~/eos-dawn-5-22/eos/build/contracts/eosio.token -p eosio.token
-./cleos push action eosio.token create '[ "eosio", "1000000000.0000 EOS", 0, 0, 0]' -p eosio.token
-./cleos push action eosio.token issue '[ "user", "100.0000 EOS", "memo" ]' -p eosio
+cleos create account eosio eosio.token EOS73D1s3ie2M8WdSDefQp4ZCYX99sda9wmkVvJ3GBLUbNyBeXnTe EOS5pJ1hEb6YhNVwE6EsJWYk88fYwYnEzYGEMwbwsZeGZx1XvT1u6
+cleos set contract eosio.token ~/eos-master/eos/build/contracts/eosio.token -p eosio.token
+cleos push action eosio.token create '[ "eosio", "1000000000.0000 EOS", 0, 0, 0]' -p eosio.token
+cleos push action eosio.token issue '[ "user", "100.0000 EOS", "memo" ]' -p eosio
 ./cleos get table eosio.token EOS stat
 ./cleos get table eosio.token user accounts
 ./cleos push action eosio.token transfer '[ "user", "tester", "25.0000 EOS", "m" ]' -p user
@@ -38,30 +38,3 @@ imported private key for: EOS5pJ1hEb6YhNVwE6EsJWYk88fYwYnEzYGEMwbwsZeGZx1XvT1u6
 
 
 cleos set contract eosio ~/eos-dawn-5-22/eos/build/contracts/eosio.system/ -p eosio 
-
-
-
-================== hello contract ====================
-cleos create account openmarket hello EOS73D1s3ie2M8WdSDefQp4ZCYX99sda9wmkVvJ3GBLUbNyBeXnTe EOS5pJ1hEb6YhNVwE6EsJWYk88fYwYnEzYGEMwbwsZeGZx1XvT1u6
-cleos set contract hello ~/eos-contract/hello/ -p hello
-
-
-================== openmarket contract ===============
-cleos create account eosio openmarket EOS73D1s3ie2M8WdSDefQp4ZCYX99sda9wmkVvJ3GBLUbNyBeXnTe EOS5pJ1hEb6YhNVwE6EsJWYk88fYwYnEzYGEMwbwsZeGZx1XvT1u6
-cleos set contract openmarket ~/eos-contract/openmarket/ -p openmarket
-cleos push action openmarket create '[ "openmarket", "1000000.0000 OMC", 0, 0, 0]' -p openmarket
-cleos push action openmarket issue '[ "openmarket", "10000.0000 OMC", "memo" ]' -p openmarket
-cleos push action openmarket issue '[ "user", "100.0000 OMC", "memo" ]' -p openmarket
-cleos push action openmarket transfer '[ "user", "tester", "25.0000 OMC", "m" ]' -p user
-
-cleos get table openmarket user accounts
-cleos get table openmarket OMC stat
-cleos get table openmarket EOS stat
-
-cleos push action openmarket reguser '[ "user" ]' -p openmarket
-
-================= openmarket user contract =============
-cleos create account openmarket reguser EOS73D1s3ie2M8WdSDefQp4ZCYX99sda9wmkVvJ3GBLUbNyBeXnTe EOS5pJ1hEb6YhNVwE6EsJWYk88fYwYnEzYGEMwbwsZeGZx1XvT1u6
-cleos set contract reguser ~/eos-contract/user/ -p reguser
-cleos push action reguser reguser '[ "user" ]' -p openmarket 
-cleos get  table reguser reguser users

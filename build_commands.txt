@@ -1,1 +1,1 @@
-./eosio-build.sh -o Debug
+./eosio-build.sh -o Debug -s EOS
