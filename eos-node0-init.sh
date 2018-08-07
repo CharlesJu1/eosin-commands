@@ -21,4 +21,14 @@ cleos push action eosio.token issue '[ "eosio", "1000000000.0000 EOS", "memo" ]'
 
 cleos set contract eosio ~/eos-master/eos/build/contracts/eosio.system -p eosio
 
-#cleos system newaccount eosio user EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV --stake-net "100000000 EOS" --stake-cpu "100000000 EOS"  --buy-ram "100 EOS" --transfer
+cleos system newaccount eosio user EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV --stake-net "100000000 EOS" --stake-cpu "100000000 EOS"  --buy-ram "100 EOS" --transfer
+cleos system newaccount eosio tester EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV --stake-net "10 EOS" --stake-cpu "10 EOS"  --buy-ram "10 EOS" --transfer
+
+#cleos create account eosio user EOS73D1s3ie2M8WdSDefQp4ZCYX99sda9wmkVvJ3GBLUbNyBeXnTe EOS5pJ1hEb6YhNVwE6EsJWYk88fYwYnEzYGEMwbwsZeGZx1XvT1u6
+#cleos create account eosio tester EOS73D1s3ie2M8WdSDefQp4ZCYX99sda9wmkVvJ3GBLUbNyBeXnTe EOS5pJ1hEb6YhNVwE6EsJWYk88fYwYnEzYGEMwbwsZeGZx1XvT1u6
+#cleos push action eosio.token issue '[ "user", "100.0000 EOS", "memo" ]' -p eosio
+#cleos transfer eosio user "5000 EOS"  -p eosio
+
+###########omes.user contract ########
+#cleos system newaccount --transfer eosio producer1 EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV --stake-net "100.0000 EOS" --stake-cpu "100.0000 EOS" --buy-ram "100 EOS" -p eosio
+#cleos set contract omes.user ~/easypay-coding-net/omes.user -p omes.user
